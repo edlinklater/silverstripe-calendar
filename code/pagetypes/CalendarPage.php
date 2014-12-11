@@ -185,7 +185,26 @@ class CalendarPage_Controller extends Page_Controller {
 			|| ($action == '' && $indexSetting == 'eventlist')
 
 		) {
-			$events = CalendarHelper::events_for_month($this->CurrentMonth());
+			// Which events to show?
+			switch($s['calendarpage']['eventlist']) {
+				case 'coming':
+					$events = CalendarHelper::coming_events();
+					break;
+				case 'past':
+					$events = CalendarHelper::past_events();
+					break;
+				case 'all':
+					$events = CalendarHelper::all_events();
+					break;
+				case 'month':
+					$events = CalendarHelper::events_for_month($this->CurrentMonth());
+					break;
+				default:
+					// Backwards compatibility
+					$events = CalendarHelper::events_for_month($this->CurrentMonth());
+					break;
+			}
+
 			
 			if ($action == 'eventregistration') {
 				$events = $events

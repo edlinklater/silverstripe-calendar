@@ -48,7 +48,9 @@ class CalendarConfig {
 		'pagetypes' => array(
 			'enable_eventpage' => true,
 			'calendarpage' => array(
-				'eventlist' => true,
+				//by default show all events for this month
+				//can be: month, coming, past, all
+				'eventlist' => 'month',
 				'calendarview' => true, //fullcalendar
 				'search' => true,
 				'index' => 'eventlist',
