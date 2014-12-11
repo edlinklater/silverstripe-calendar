@@ -5,8 +5,6 @@
 	<% include CalendarPageMenu CurrentMenu='eventlist' %>
 <% end_if %>
 
-<% include FullcalendarCustomNav CurrentMenu='eventlist' %>
-
 <div class="EventList">
 
 	<% if $Events %>
